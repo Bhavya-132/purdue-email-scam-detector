@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Purdue Email Scam Demo</title>
+  <style>
+    :root {
+      --gold: #DAAA00;
+      --black: #000000;
+      --muted: #f6f6f6;
+      --danger: #b22222;
+    }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 0; }
+    .wrap { width: 340px; padding: 14px 14px 16px; }
+    .hdr { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .pill { background: var(--gold); color: var(--black); font-weight: 700; padding: 2px 8px; border-radius: 999px; font-size: 12px; }
+    h1 { font-size: 16px; margin: 0; }
+    .row { display: flex; justify-content: space-between; align-items: baseline; margin: 6px 0; }
+    .k { color: #555; }
+    .v { font-weight: 700; }
+    .score { color: var(--danger); font-size: 22px; font-weight: 800; }
+    .section { background: var(--muted); padding: 10px; border-radius: 10px; margin-top: 10px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .chip { background: #fff3cd; border: 1px solid #ffe8a1; padding: 4px 8px; border-radius: 999px; font-size: 12px; }
+    .btns { display: flex; gap: 8px; margin-top: 12px; }
+    button { border: none; padding: 8px 10px; border-radius: 8px; cursor: pointer; font-weight: 600; }
+    .primary { background: var(--gold); color: var(--black); }
+    .ghost { background: #e9ecef; }
+    .muted { font-size: 12px; color: #777; margin-top: 8px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="hdr">
+      <span class="pill">Demo</span>
+      <h1>Email Scan Result</h1>
+    </div>
+
+    <div class="row">
+      <div class="k">Label</div>
+      <div id="label" class="v">Suspicious</div>
+    </div>
+    <div class="row">
+      <div class="k">Confidence</div>
+      <div id="score" class="score">92%</div>
+    </div>
+
+    <div class="section">
+      <div style="font-weight:700">Highlighted phrases</div>
+      <div id="phrases" class="chips">
+        <!-- filled by JS -->
+      </div>
+    </div>
+
+    <div class="btns">
+      <button id="rescan" class="ghost">Rescan</button>
+      <button id="report" class="primary">Report Phishing</button>
+    </div>
+
+    <div class="muted">This is a local demo. In production, results come from the ML model via the Flask API.</div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
